@@ -1,0 +1,3 @@
+# Setup globals used by the tests
+
+export WORKON_HOME="$(echo ${TMPDIR:-/tmp}/WORKON_HOME.$$ | sed 's|//|/|g')"

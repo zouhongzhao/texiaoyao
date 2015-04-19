@@ -1,0 +1,483 @@
+a:2:{i:0;a:2:{i:0;s:34988:"<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" type="text/css" href="/assets/7d883f12/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/assets/7d883f12/css/bootstrap-responsive.css" />
+<link rel="stylesheet" type="text/css" href="/assets/7d883f12/css/yii.css" />
+<link rel="stylesheet" type="text/css" href="/themes/default/css/main.css" />
+<link rel="stylesheet" type="text/css" href="/themes/default/css/jquery.tmailsilder.v2.css" />
+<link rel="stylesheet" type="text/css" href="/themes/default/css/qqkf.css" />
+<link rel="stylesheet" type="text/css" href="/themes/default/css/service.css" />
+<script type="text/javascript" src="/assets/2e861c01/jquery.js"></script>
+<script type="text/javascript" src="/assets/7d883f12/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/jquery.tmailsilder.v2.js"></script>
+<script type="text/javascript" src="/js/bootstrap-typeahead.js"></script>
+<script type="text/javascript" src="/js/persist-min.js"></script>
+<script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/js/function.js"></script>
+<script type="text/javascript" src="/js/service.js"></script>
+<title>特效药比价网 - 特效药比价网,国内第一家药物垂直比价搜索引擎</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8;font-family: arial, sans-serif" />
+<meta http-equiv="Content-Language" content="zh_cn" />
+<meta name="description" content="国内第一家药物垂直比价搜索引擎,极大的方便了各位寻求特效药的朋友搜索最实惠的特效药,灰指甲特效药,感冒特效药,减肥特效药, 癌症特效药 ..." />
+<meta name="keywords" content="特效药,药品比价,医药比价,药物比价,药店比价,医药供求" />
+    <link rel="shortcut icon" href="/themes/default/images/favicon.ico">
+		                    <!--[if lt IE 9]>
+        <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<script type="text/javascript">
+        var SITE_URL = "";
+        var UserId  = '';
+        var RETURN_URL = '/?category_id=35&Shop_sort=store.desc';
+</script>
+<body id="top">
+
+<div class="navbar navbar-inverse navbar-fixed-top"><div class="navbar-inner"><div class="container"><a class="btn btn-navbar" data-toggle="collapse" data-target="#yii_bootstrap_collapse_0"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="/" class="brand">特效药比价网</a><div class="nav-collapse" id="yii_bootstrap_collapse_0"><ul class="pull-left nav" id="yw1"><li><a href="http://bbs.texiaoyao.cn">论坛</a></li></ul><ul class="pull-right nav" id="yw2"><li><a href="/login.html">登陆</a></li><li class="divider-vertical"></li><li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">语言 <span class="caret"></span></a><ul id="yw3" class="dropdown-menu"><li><a tabindex="-1" href="/site/selectLanguage.html?lc=zh_cn">中文</a></li><li><a tabindex="-1" href="/site/selectLanguage.html?lc=en_us">英文</a></li></ul></li></ul></div></div></div></div>
+<div class="container">
+
+            <ul class="breadcrumbs breadcrumb"><li><a href="/">首页</a><span class="divider">/</span></li><li class="active">shop</li></ul>    
+    	<div class="row" style="margin: 0 auto;max-width: 980px;">
+		
+<div id="logo_title">
+	<div style="text-align:center;">
+		<h1><a href=""><img class="center" alt="" src="/themes/default/images/logo_title.png"></a></h1>
+	</div>
+</div>
+	<div id="header">
+	<div id='search_form'>
+<ul id="Z_TMAIL_SIDER_V2" class="sw_categorys_nav clearfix">
+	<li class="allcategorys">
+		<h3 class="title-item-hd"><a href="javascript:void(0);" class=""><s class="icon"></s></a></h3>
+		
+		<ul class="sublist" style="top: 41px; opacity: 1; display: none; ">
+			<li><h3 class="mcate-item-hd">
+								<span>肿瘤</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=1">肝癌</a><a href="/shop/search.html?category_id=2">肺癌</a><a href="/shop/search.html?category_id=3">鼻咽癌</a><a href="/shop/search.html?category_id=4">直肠癌</a><a href="/shop/search.html?category_id=5">胰腺癌</a><a href="/shop/search.html?category_id=6">脑癌</a><a href="/shop/search.html?category_id=7">前列腺癌</a><a href="/shop/search.html?category_id=8">肾癌</a><a href="/shop/search.html?category_id=9">喉癌</a><a href="/shop/search.html?category_id=10">胆管癌</a><a href="/shop/search.html?category_id=11">恶黑瘤</a><a href="/shop/search.html?category_id=12">睾丸肿瘤</a><a href="/shop/search.html?category_id=13">胃癌</a><a href="/shop/search.html?category_id=14">结肠癌</a><a href="/shop/search.html?category_id=15">食道癌</a><a href="/shop/search.html?category_id=16">宫颈癌</a><a href="/shop/search.html?category_id=17">淋巴癌</a><a href="/shop/search.html?category_id=18">白血病</a><a href="/shop/search.html?category_id=19">卵巢癌</a><a href="/shop/search.html?category_id=20">舌癌</a><a href="/shop/search.html?category_id=21">膀胱癌</a><a href="/shop/search.html?category_id=22">甲状腺癌</a></p></li><li><h3 class="mcate-item-hd">
+								<span>肿瘤辅助用药</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=23">恶心、呕吐</a><a href="/shop/search.html?category_id=24">补充营养</a><a href="/shop/search.html?category_id=25">腹泻</a><a href="/shop/search.html?category_id=26">疼痛</a><a href="/shop/search.html?category_id=27">增强免疫力</a></p></li><li><h3 class="mcate-item-hd">
+								<span>风湿免疫科</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=28">骨关节炎</a><a href="/shop/search.html?category_id=29">骨质疏松</a><a href="/shop/search.html?category_id=30">痛风</a><a href="/shop/search.html?category_id=31">类风湿</a><a href="/shop/search.html?category_id=32">坐骨神经痛</a><a href="/shop/search.html?category_id=33">强直性脊柱炎</a><a href="/shop/search.html?category_id=34">器官移植</a><a href="/shop/search.html?category_id=35">骨质增生</a><a href="/shop/search.html?category_id=36">股骨头坏死</a><a href="/shop/search.html?category_id=37">颈椎病</a></p></li><li><h3 class="mcate-item-hd">
+								<span>肝病</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=38">肝纤维化</a><a href="/shop/search.html?category_id=39">肝硬化</a><a href="/shop/search.html?category_id=40">乙肝</a><a href="/shop/search.html?category_id=41">肝性脑病</a><a href="/shop/search.html?category_id=42">脂肪肝</a></p></li><li><h3 class="mcate-item-hd">
+								<span>皮肤性病科</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=43">白癜风</a><a href="/shop/search.html?category_id=44">脱发</a><a href="/shop/search.html?category_id=45">皮炎</a><a href="/shop/search.html?category_id=46">疱疹</a><a href="/shop/search.html?category_id=47">灰指甲</a><a href="/shop/search.html?category_id=48">痤疮(青春痘)</a><a href="/shop/search.html?category_id=49">银屑病(牛皮癣)</a><a href="/shop/search.html?category_id=50">疤痕(瘢痕)</a><a href="/shop/search.html?category_id=51">荨麻疹</a><a href="/shop/search.html?category_id=52">尖锐湿疣</a><a href="/shop/search.html?category_id=53">系统性红斑狼疮</a></p></li><li><h3 class="mcate-item-hd">
+								<span>神经科</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=54">脑血管病</a><a href="/shop/search.html?category_id=55">偏头痛</a><a href="/shop/search.html?category_id=56">老年性痴呆</a><a href="/shop/search.html?category_id=57">癫痫</a><a href="/shop/search.html?category_id=58">运动神经元病</a><a href="/shop/search.html?category_id=59">神经性头痛</a><a href="/shop/search.html?category_id=60">帕金森病</a></p></li><li><h3 class="mcate-item-hd">
+								<span>精神科</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=61">精神分裂症</a><a href="/shop/search.html?category_id=62">多动症</a><a href="/shop/search.html?category_id=63">抑郁症</a></p></li><li><h3 class="mcate-item-hd">
+								<span>泌尿生殖科</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=64">前列腺肥大</a><a href="/shop/search.html?category_id=65">肾炎</a><a href="/shop/search.html?category_id=66">勃起功能障碍</a><a href="/shop/search.html?category_id=105">前列腺炎</a></p></li><li><h3 class="mcate-item-hd">
+								<span>心脑血管科</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=67">高血压病</a><a href="/shop/search.html?category_id=68">心脑血管病</a><a href="/shop/search.html?category_id=69">高血脂症</a><a href="/shop/search.html?category_id=70">心脏及冠脉疾病</a><a href="/shop/search.html?category_id=71">周围血管疾病</a></p></li><li><h3 class="mcate-item-hd">
+								<span>消化科</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=72">十二指肠溃疡</a><a href="/shop/search.html?category_id=73">胃炎</a><a href="/shop/search.html?category_id=74">痔疮</a><a href="/shop/search.html?category_id=75">便秘</a><a href="/shop/search.html?category_id=76">腹泻</a></p></li><li><h3 class="mcate-item-hd">
+								<span>眼科</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=77">白内障</a><a href="/shop/search.html?category_id=78">视网膜病变</a><a href="/shop/search.html?category_id=79">黄斑变性</a><a href="/shop/search.html?category_id=80">玻璃体混浊</a><a href="/shop/search.html?category_id=81">青光眼</a><a href="/shop/search.html?category_id=82">葡萄膜炎</a><a href="/shop/search.html?category_id=83">干眼症</a><a href="/shop/search.html?category_id=84">结膜炎</a><a href="/shop/search.html?category_id=85">角膜炎</a><a href="/shop/search.html?category_id=86">近视弱视</a></p></li><li><h3 class="mcate-item-hd">
+								<span>糖尿病科用药</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=87">Ⅰ型糖尿病</a><a href="/shop/search.html?category_id=88">Ⅱ型糖尿病</a><a href="/shop/search.html?category_id=89">糖尿病其他并发症</a></p></li><li><h3 class="mcate-item-hd">
+								<span>血液</span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=90">慢性粒细胞白血病</a><a href="/shop/search.html?category_id=91">急淋</a><a href="/shop/search.html?category_id=92">血友病</a></p></li><li><h3 class="mcate-item-hd">
+								<span></span>
+							</h3><p class="mcate-item-bd"><a href="/shop/search.html?category_id=93">感冒</a><a href="/shop/search.html?category_id=94">禽流感</a><a href="/shop/search.html?category_id=95">牙疼</a><a href="/shop/search.html?category_id=96">沙眼</a><a href="/shop/search.html?category_id=97">鹅掌风</a><a href="/shop/search.html?category_id=98">蓟马</a><a href="/shop/search.html?category_id=99">卢氏甲沟炎</a><a href="/shop/search.html?category_id=100">灭魔疱疹</a><a href="/shop/search.html?category_id=101">尖锐湿疣</a><a href="/shop/search.html?category_id=102">湿疹</a><a href="/shop/search.html?category_id=103">盆腔炎</a><a href="/shop/search.html?category_id=104">脚气</a></p></li>		</ul>
+	</li>
+	<li class="lin">
+<form method='get' action='/shop/search.html'>
+		<input id="channel_q" type="text" name="category_id" value="特效药" placeholder="输入病症/药名" class="TXT" data-provide="typeahead" data-source='["肝癌","肺癌","鼻咽癌","直肠癌","胰腺癌","脑癌","前列腺癌","肾癌","喉癌","胆管癌","恶黑瘤","睾丸肿瘤","胃癌","结肠癌","食道癌","宫颈癌","淋巴癌","白血病","卵巢癌","舌癌","膀胱癌","甲状腺癌","恶心、呕吐","补充营养","腹泻","疼痛","增强免疫力","骨关节炎","骨质疏松","痛风","类风湿","坐骨神经痛","强直性脊柱炎","器官移植","骨质增生","股骨头坏死","颈椎病","肝纤维化","肝硬化","乙肝","肝性脑病","脂肪肝","白癜风","脱发","皮炎","疱疹","灰指甲","痤疮(青春痘)","银屑病(牛皮癣)","疤痕(瘢痕)","荨麻疹","尖锐湿疣","系统性红斑狼疮","脑血管病","偏头痛","老年性痴呆","癫痫","运动神经元病","神经性头痛","帕金森病","精神分裂症","多动症","抑郁症","前列腺肥大","肾炎","勃起功能障碍","前列腺炎","高血压病","心脑血管病","高血脂症","心脏及冠脉疾病","周围血管疾病","十二指肠溃疡","胃炎","痔疮","便秘","腹泻","白内障","视网膜病变","黄斑变性","玻璃体混浊","青光眼","葡萄膜炎","干眼症","结膜炎","角膜炎","近视弱视","Ⅰ型糖尿病","Ⅱ型糖尿病","糖尿病其他并发症","慢性粒细胞白血病","急淋","血友病","感冒","禽流感","牙疼","沙眼","鹅掌风","蓟马","卢氏甲沟炎","灭魔疱疹","尖锐湿疣","湿疹","盆腔炎","脚气"]'>
+	<button type="submit" class="BTN">搜索</button>
+</form>
+</li>
+</ul>
+</div>
+<div id='ajax_load'>
+
+<div class='handle animated' data-toggle="modal" data-target="#myModal">
+    添加新药 <sup>new</sup>
+</div>
+
+<!-- Modal -->
+<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" style="width:60%">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        	 <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  			<h4 class="modal-title" id="myModalLabel">请先登录</h4>
+      </div>
+      <div class="modal-body">
+ 		<span id="jumpTo">5</span>秒后自动跳转到登陆页面
+		<script type="text/javascript">
+		$('#myModal').on('shown.bs.modal', function (e) {
+		 countDown(5,'/login.html');
+		})
+		</script>  
+      </div>
+         
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script>
+  // $(function () {
+    // $('#myTab a:last').tab('show')
+  // })
+    $(document).ready(function(){
+     	$('#myTab a:last').tab('show');
+     	// $(document).on("click","#search_form",function(){
+     		// alert_d('222222222');
+     	// });
+    }); // end document.ready
+</script>
+</div> <!-- end ajax load -->
+	</div><!-- header --><div id='explanation'>
+    <p class="well">
+    	您可以在这里<strong>搜索</strong>，浏览，联系，<strong>发布</strong>特效药信息,<strong>网上药店</strong>公司可以让你们的药店加入进来,这些都是免费的。
+    	目前已经有<strong>10</strong>家通过<a href="http://baike.baidu.com/view/458592.htm" rel="tooltip" title="GSP是英文Good Supply Practice的缩写，意即良好供应规范，是控制医药商品流通环节所有可能发生质量事故的因素从而防止质量事故发生的一整套管理程序，医药商品在其生产、经营和销售的全过程中，由于内外因素作用，随时都有可能发生质量问题，必须在所有这些环节上采取严格措施，才能从根本上保证医药商品质量。GSP是《药品经营质量管理规范》的英文缩写，是药品经营企业统一的质量管理准则。药品经营企业应在药品监督管理部门规定的时间内达到GSP要求，并通过认证取得认证证书。" target="_blank">GSP</a>认证，有多家实体连锁药房的网上药店加入.    	</p>
+</div>
+<div id='examples'>
+	<span>各种类型的 <em>特效药</em>:</span>
+    <div>
+    <ul>
+        <li>
+        <a href='/shop/search.html?category_id=%E7%81%B0%E6%8C%87%E7%94%B2' target="_blank">灰指甲特效药</a>
+        </li>
+        <li>
+        <a href='/shop/search.html?category_id=%E7%89%99%E7%96%BC' target="_blank">牙疼特效药</a>
+        </li>
+         <li>
+        <a href='/shop/search.html?category_id=%E7%B3%96%E5%B0%BF%E7%97%85' target="_blank">糖尿病特效药</a>
+        </li>
+          <li>
+        <a href='/shop/search.html?category_id=%E5%8D%A2%E6%B0%8F%E7%94%B2%E6%B2%9F%E7%82%8E' target="_blank">卢氏甲沟炎特效药</a>
+        </li>
+          <li>
+        <a href='/shop/search.html?category_id=%E5%89%8D%E5%88%97%E8%85%BA%E7%82%8E' target="_blank">前列腺炎的特效药</a>
+        </li>
+         <li>
+        <a href='/shop/search.html?category_id=%E7%89%9B%E7%9A%AE%E7%99%A3' target="_blank">牛皮癣的特效药</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+        <a href='/shop/search.html?category_id=%E6%84%9F%E5%86%92' target="_blank">感冒特效药</a>
+        </li>
+         <li>
+        <a href='/shop/search.html?category_id=%E6%B2%99%E7%9C%BC' target="_blank">沙眼特效药</a>
+        </li>
+         <li>
+        <a href='/shop/search.html?category_id=%E9%B9%85%E6%8E%8C%E9%A3%8E' target="_blank">鹅掌风特效药</a>
+        </li>
+         <li>
+        <a href='/shop/search.html?category_id=%E7%81%AD%E9%AD%94%E7%96%B1%E7%96%B9' target="_blank">灭魔疱疹特效药</a>
+        </li>
+          <li>
+        <a href='/shop/search.html?category_id=%E6%B9%BF%E7%96%B9' target="_blank">湿疹的特效药</a>
+        </li>
+         <li>
+        <a href='/shop/search.html?category_id=%E8%84%9A%E6%B0%94' target="_blank">脚气的特效药</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+        <a href='/shop/search.html?category_id=%E7%A6%BD%E6%B5%81%E6%84%9F' target="_blank">禽流感特效药</a>
+        </li>
+         <li>
+        <a href='/shop/search.html?category_id=%E8%82%BA%E7%99%8C' target="_blank">肺癌晚期特效药</a>
+        </li>
+         <li>
+        <a href='/shop/search.html?category_id=%E8%93%9F%E9%A9%AC' target="_blank">蓟马特效药</a>
+        </li>
+         <li>
+        <a href='/shop/search.html?category_id=%E5%B0%96%E9%94%90%E6%B9%BF%E7%96%A3' target="_blank">治疗尖锐湿疣的特效药</a>
+        </li>
+          <li>
+        <a href='/shop/search.html?category_id=%E7%9B%86%E8%85%94%E7%82%8E' target="_blank">盆腔炎的特效药</a>
+        </li>
+    </ul>
+    </div>
+</div>
+<div class='recent'>
+	<span>最近添加的新药:</span>
+    <div>
+    <ul>
+       <!--  <li>
+        <a class='company_logo' href='#' title='Matt Ramos Photography'>
+        <img src='#'/>
+        </a>
+        </li> -->
+    </ul>
+    </div>
+</div>	</div><!-- content -->
+	<div id="push"></div>
+
+
+   <div id="footer">
+		   	<div class="alert alert-danger">
+						提示：本站只提供各药店商品交易平台的比价功能，不参与任何药品交易业务						
+		</div>
+			 <div id="mainmenu">
+				<ul id="yw4">
+<li><a href="/">首页</a></li>
+<li><a href="/post/index.html">医药供求</a></li>
+<li><a href="/site/page.html?view=about">关于我们</a></li>
+<li><a href="/site/contact.html">联系我们</a></li>
+<li><a href="/login.html">登陆</a></li>
+</ul>			</div>
+				
+			Copyright &copy; 2014
+			by Texiaoyao. All Rights Reserved. <a target="_blank" href="http://www.miitbeian.gov.cn/">鄂ICP备13000850号-</a>1			<br/>
+			<div id="linkbox" class="clearfix">
+		        <h3>友情链接</h3>
+		        <dl>
+					<dd>
+						<a href="http://www.mallol.cn" title="Mall购物导航" target="_blank">Mall购物导航</a>
+					</dd>
+				</dl>
+		    </div>
+			&nbsp;&nbsp;&nbsp;
+			<a href="http://webscan.360.cn/index/checkwebsite/url/www.texiaoyao.cn"><img border="0" src="http://img.webscan.360.cn/status/pai/hash/f8134b11c05ebb2b3b5abcfc5ac73e23"/></a>
+			<!-- <div style="margin:0 auto;width:980px">
+        <div class="row">
+            <div class="span2 offset2">
+                <h4>Useful links</h4>
+                <ul>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="span2 offset1">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="">Knowledge base</a></li>
+                    <li><a href="">Live Chat</a></li>
+                    <li><a href="">Send Email</a></li>
+                </ul>
+            </div>
+            <div class="span2 offset1">
+                <h4>Connect with us</h4>
+                <ul>
+                   <li><a href="" title="LinkedIn">LinkedIn</a></li>
+                    <li><a href="" title="Google+">Google Plus</a></li>
+                     <li><a href="" title="Facebook">Facebook</a></li>
+                    <li><a href="" title="Twitter">Twitter</a></li>
+                    <li><a href="" title="RSS">RSS</a></li>
+                    <li><a href="" title="Blogs">Blogs</a></li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+			<script type="text/javascript">
+                var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0675a5a7bd5daee966600327dbf56f37' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+			
+
+		</div><!-- footer -->
+
+
+</div>
+
+<div class="backto-top">
+  <ul id="jump">
+    <li style="display:none;height:50px;"><a id="backtotop" href="#backtotop"></a></li>
+    <li style="height:50px"><a id="sina" rel="nofollow" href="http://service.weibo.com/share/share.php?url=http://texiaoyao.cn/?category_id=35&Shop_sort=store.desc" target="_blank"></a></li>
+    <li style="height:50px"><a id="weixin" href="javascript:void(0)" onmouseover="showEWM()" onmouseout="hideEWM()">
+      <div id="EWM">
+      <!-- 
+       <img src="https://chart.googleapis.com/chart?cht=qr&chld=H&chs=150x150&chl=http://texiaoyao.cn/?category_id=35&Shop_sort=store.desc" alt="QR:  "/>
+       -->
+     
+      </div>
+      </a></li>
+    <li style="height:50px"><a id="ceping" href="http://share.v.t.qq.com/index.php?c=share&a=index&url=http://texiaoyao.cn/?category_id=35&Shop_sort=store.desc" target="_blank"></a></li>
+    <li style="height:50px"><a id="reply" href="/site/reply.html" target="_blank"></a></li>
+    <script>
+	  	function showEWM()
+			{
+				document.getElementById("EWM").style.display = 'block';
+				}
+		function hideEWM()
+			{
+				document.getElementById("EWM").style.display = 'none';
+				}
+	  </script>
+  </ul>
+</div>
+
+<!-- 客服系统 -->
+<!-- helper-button写行内样式为了搜狗360兼容 -->
+<div class="helper-button" style="position:fixed; width:42px;height:118px;right:6px;top:200px;z-index:10000; _position:absolute;_bottom:auto;  _top:expression(eval(document.documentElement.scrollTop+112));  " > <a href="#" onclick="return false;"></a> </div>
+<div class="helper-wrap show" style="cursor:move;" title="点击拖动">
+  <div class="helper-box">
+    <div class="helper-box-tit">
+      <ul class="tab_menu">
+        <li id="advertiser"><a class="on" href="javascript:void(0);" >商家合作</a></li>
+        <li id="affiliate"><a class="" href="javascript:void(0);" >常见问题</a></li>
+        <!--<li style="height:30px; width:125px;cursor:move;" title="点击拖动"></li>-->
+      </ul>
+      <div class="helper-box-close"> <a onclick="return false;" title="关闭" > <i class="iconfont">&#223;</i> </a> </div>
+    </div>
+    <div class="helper-box-info">
+      <div style=float:left;"><span style="font-size: 10pt;">【公告】 </span></div>
+      <p> <a href="http://texiaoyao.cn/shop/search.html?category_id=%E7%89%B9%E6%95%88%E8%8D%AF" target="_blank" title="特效药比价功能上线！">1、特效药比价功能上线！。</a></p>
+      <p> <a href="http://texiaoyao.cn/post/index.html" target="_blank" title="特效药供求功能上线">2、特效药供求功能上线。</a></p>
+     <p> <a href="http://texiaoyao.cn/profile/bulkImport.html" target="_blank" title="批量导入产品功能上线">3、批量导入产品功能上线。</a></p>
+      <!--<p style="text-indent:58px;"><a href="">2、站长最新招募活动，丰厚的佣金等你拿。</a></p>-->
+    </div>
+    <div class="tab_box" id="adver">
+      <!--广告商信息列表-->
+      <ul class="con">
+        <li><a title="合作合同下载！" href="#">合作合同下载！</a>
+          <div class="helper-box-list-con" >
+            <div style="text-align: center; ">合作合同下载</div>
+          </div>
+        </li>
+        <li><a title="特效药联盟合作流程。" href="#">特效药联盟合作流程。</a>
+          <div class="helper-box-list-con" >
+            <ul class="inline bigicon">
+              <li class="icon"><a href="http://www.texiaoyao.cn" target="_blank"><i class="iconfont">&#61471;</i> </a>
+                <p><a href="http://www.texiaoyao.cn" target="_blank">STEP 1</a></p>
+                <p><a href="http://www.texiaoyao.cn" target="_blank">洽谈合作</a></p>
+              </li>
+              <!-- <li class="ftip"><i class="iconfont">&#323;</i></li>
+              <li class="icon"><a href="http://www.texiaoyao.cn" target="_blank"><i class="iconfont">&#302;</i> </a>
+                <p><a href="http://www.texiaoyao.cn" target="_blank">STEP 2</a></p>
+                <p><a href="http://www.texiaoyao.cn" target="_blank">预存费用</a></p>
+              </li> -->
+              <li class="ftip"><i class="iconfont">&#323;</i></li>
+              <li class="icon"><a href="http://www.texiaoyao.cn" target="_blank"><i class="iconfont">&#288;</i> </a>
+                <p><a href="http://www.texiaoyao.cn" target="_blank">STEP 2</a></p>
+                <p><a href="http://www.texiaoyao.cn" target="_blank">上线推广</a></p>
+              </li>
+              <li class="ftip"><i class="iconfont">&#323;</i></li>
+              <li class="icon"><a href="http://www.texiaoyao.cn" target="_blank"><i class="iconfont">&#263;</i> </a>
+                <p><a href="http://www.texiaoyao.cn" target="_blank">STEP 3</a></p>
+                <p><a href="http://www.texiaoyao.cn" target="_blank">效果跟踪</a></p>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li><a title="如何新建广告？" href="#">如何新建广告？</a></li>
+        <li><a title="如何发布产品？" href="#">如何发布产品？</a>
+          <div class="helper-box-list-con" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 注册后方可发布产品,产品的话必须是正规的厂家,国家药监局认证的、<br />
+           一个账户可以发布多个产品。
+           </div>
+        </li>
+        <li><a title="如何发布供求信息？" href="#">如何发布供求信息？</a>
+          <div class="helper-box-list-con" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+          	注册后方可发布供求信息
+          </div>
+        </li>
+      </ul>
+      <div class="helper-box-bot">
+        <!--广告商QQ客服-->
+        <a style="background:#95C360;" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=529894459&site=qq&menu=yes"><i class="iconfont" style="font-size:25px">&#524;</i> QQ咨询 </a>
+        <a style="background:#54C5FD;" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=892294022&site=qq&menu=yes"><i class="iconfont" style="font-size:25px">&#39;</i> 892294022 </a> </div>
+    </div>
+    <div class="tab_box" id="affili"style="display:none">
+      <!--站长信息列表-->
+      <ul class="con">
+        <li><a title="告诉您如何推广下线链接获得永久提成" href="#">特效药比价网有什么功能？对您有什么用处？</a>
+          <div class="helper-box-list-con" > 
+    1,全网药品比价:我们的网络蜘蛛定时到主流B2C网上药店抓取产品数据，包括：产品的价格，库存，用户评分，以及评论数。 以供用户参考。让用户更方便的找出最高性价比的药品。<br /><br />
+    2,数据检索：我们拥有国内最先进的搜索系统，并为您创建了方便快捷的搜索平台——爬虫搜索。您可以迅速找到所需要的产品、企业、招商、供求、资讯等各类信息。<br /><br />
+    3,医药供求:即中国特效药供求网，是为医药业内发布供求信息的平台。支持一键更新，添加好友，发短信息，会员积分等级，匿名发 布等功能，实行明日竞价置顶信息，提高关注度。如发布的信息不符合相关政策法规，本站在不通知情况下删除相关信息。<br />
+ &hellip;&hellip;<br />
+            <br />
+          </div>
+        </li>
+        <li><a title="最新活动预告" href="#">最新活动预告</a>
+          <div class="helper-box-list-con" > &nbsp; &nbsp; 请关注特效药咨询，各种活动即将上线。</a></div>
+        </li>
+        <li><a title="违规推广处罚规则。" href="#">违规推广处罚规则。</a>
+          <div class="helper-box-list-con" > &nbsp; &nbsp; &nbsp; &nbsp;如违反《特效药联盟会员注册协议》，将立即解除与特效药联盟合作，不再恢复合作资格。</div>
+        </li>
+        <li><a title="网站审核要求有哪些？" href="#">网上药店审核要求有哪些？</a>
+          <div class="helper-box-list-con" > 有以下情况者，特效药联盟谢绝加入！
+            <div>1、网站没有实际内容.</div>
+            <div>2、网站有病毒或木马.</div>
+            <div>3、色情或不健康内容.</div>
+            <div>4、弹窗过多.(所有单页面弹窗不得多于2个&lt;进弹+退弹&gt;)&nbsp;</div>
+            <div>5、非正规投放代码.(隐藏、遮盖广告)</div>
+            <div>6、作弊帐号，代理IP或虚假数据.</div>
+            <div>7、网站打不开.</div>
+            <div>8、网站内容不适合.</div>
+            <div>9、其他不遵守特效药联盟相关规定或变相违规的帐号.</div>
+            <div>请注意，特效药联盟只审核正规合法网站。</div>
+            <div>除以上之外，非自主独立域名，伦理片、三级片、网赚、广告任务、外挂私服、tk域名都不审核!</div>
+          </div>
+        </li>
+        <li><a title="什么账户会被冻结挂起？" href="#">什么账户会被冻结挂起？</a>
+          <div class="helper-box-list-con" > 日常检查中发现有以下违规现象时，情况严重的帐号将被挂起！
+            <div>一）网站没有实际内容.</div>
+            <div>【纯广告页面，新建无内容网站等一律不予审核！】</div>
+            <div>二）强制或诱导点击.</div>
+            <div>【不得以任何语言或者形式诱导、误导、要求或强制访问者点击广告。】</div>
+            <div>违规范例：</div>
+            <div>1：支持本站发展，请点击广告。&nbsp;</div>
+            <div>2：点击广告获取下载地址 / 观看影片 / 提高下载速度 / 注册帐号。&nbsp;</div>
+            <div>三）色情或不健康内容.</div>
+            <div>【特效药联盟严格审查，坚决杜绝一切色情、人体、露点等不健康网站！】</div>
+            <div>四）病毒或弹窗过多.</div>
+            <div>【网站所有单个页面弹窗不得多于2个&lt;包括进弹和退弹&gt;】</div>
+            <div>五）非正规或未投放代码.</div>
+            <div>【注册后长期未投放特效药联盟广告的，特效药联盟有权将账号删除处理。】</div>
+            <div>广告条必须完整嵌入网页且完全显示，不得删减、遮挡代码。</div>
+            <div>不得将标题颜色和背景颜色使用相近色系，以保证广告的清晰明了。</div>
+            <div>六）代理IP或作弊点击/弹窗.</div>
+            <div>【任何非人工产生的数据，代理服务器IP，假IP，自动刷新，javascript都是作弊。使用非HTML手段、 JAVASRIPT 窗口、隐藏FRAME 、CGI 自动生成、网页REFRESH/AUTOLOAD等来演绎广告均属违规。】&nbsp;</div>
+            <div>七）网站打不开或不适合加入.</div>
+            <div>【首页不能正常打开的，或者有任何一种不适合审核的情况的。】</div>
+            <div>八）标题或内容不适合.</div>
+            <div>【特效药联盟谢绝一切非正规网站。】</div>
+            <div>九）不遵守特效药联盟传媒相关规定或变相违规的帐号.</div>
+            <div>【未提及的其他。特效药联盟传媒拥有增删、修改、完善规则的权利。】</div>
+          </div>
+        </li>
+        <li><a title="怎样发布信息才能获得更多的反馈？" href="#">怎样发布信息才能获得更多的反馈？</a>
+          <div class="helper-box-list-con" > &nbsp; &nbsp; &nbsp;
+           <div>反馈信息对每一个企业都是非常重要的，所以本站的每个频道中都设有留言功能。如果您想让自己的商业信息在众多同行中脱颖而出，引起 潜在合作伙伴的关注，我们建议您：</div>
+
+<div>A：每一条商业信息尽量针对具体产品详细描述，泛泛的企业介绍对买家吸引力较小；</div>
+
+<div>B：填写的信息内容要尽量详实，对所经营的产品有比较充分的 介绍，如产品规格、产品说明等</div>
+
+<div>C：选配产品样品图片，以增强效果，真实、形象地展现产品；</div>
+
+<div>D：填写产品参数，专业详细地介绍产品品质及技术信息；</div>
+
+<div>E：确保您的固定电话、传真、Email、手机号码填写正确，避免 因写错而造成联系失败。	</div>
+          </div>
+        </li>
+      </ul>
+      <div class="helper-box-bot">
+        <!--站长QQ客服--> 
+        <a style="background:#95C360;" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=529894459&site=qq&menu=yes"><i class="iconfont" style="font-size:25px">&#524;</i> 咨询QQ </a> 
+        <a style="background:#54C5FD;" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=892294022&site=qq&menu=yes"><i class="iconfont" style="font-size:25px">&#39;</i> 892294022 </a> </div>
+    </div>
+  </div>
+</div>
+<!-- 客服系统 -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+jQuery('body').tooltip({'selector':'a[rel=tooltip]'});
+jQuery('body').popover({'selector':'a[rel=popover]'});
+jQuery('#yii_bootstrap_collapse_0').collapse({'parent':false,'toggle':false});
+});
+/*]]>*/
+</script>
+</body>
+</html>
+
+<div id="showScoreMessage"></div>
+<div id="clickme" class="info-box"  style="display:none;">
+	<p><img src="/themes/default/images/info.png"/></p>
+</div>
+<script type="text/javascript">$('#Z_TMAIL_SIDER_V2').Z_TMAIL_SIDER_V2();</script>
+";i:1;a:19:{i:0;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:34:"/assets/7d883f12/css/bootstrap.css";}}i:1;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerMetaTag";i:2;a:2:{i:0;s:37:"width=device-width, initial-scale=1.0";i:1;s:8:"viewport";}}i:2;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:45:"/assets/7d883f12/css/bootstrap-responsive.css";}}i:3;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:28:"/assets/7d883f12/css/yii.css";}}i:4;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerCoreScript";i:2;a:1:{i:0;s:6:"jquery";}}i:5;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerScriptFile";i:2;a:2:{i:0;s:32:"/assets/7d883f12/js/bootstrap.js";i:1;i:0;}}i:6;a:3:{i:0;s:12:"clientScript";i:1;s:14:"registerScript";i:2;a:2:{i:0;s:42:"Bootstrap.09333ef2b604b1e0aae4c39a7bbcb5f0";i:1;s:54:"jQuery('body').tooltip({'selector':'a[rel=tooltip]'});";}}i:7;a:3:{i:0;s:12:"clientScript";i:1;s:14:"registerScript";i:2;a:2:{i:0;s:42:"Bootstrap.0ff2474725d87f04cf139d83bba5b79d";i:1;s:54:"jQuery('body').popover({'selector':'a[rel=popover]'});";}}i:8;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:28:"/themes/default/css/main.css";}}i:9;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:45:"/themes/default/css/jquery.tmailsilder.v2.css";}}i:10;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:28:"/themes/default/css/qqkf.css";}}i:11;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:31:"/themes/default/css/service.css";}}i:12;a:3:{i:0;s:12:"clientScript";i:1;s:14:"registerScript";i:2;a:2:{i:0;s:35:"TbCollapse#yii_bootstrap_collapse_0";i:1;s:78:"jQuery('#yii_bootstrap_collapse_0').collapse({'parent':false,'toggle':false});";}}i:13;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerScriptFile";i:2;a:1:{i:0;s:28:"/js/jquery.tmailsilder.v2.js";}}i:14;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerScriptFile";i:2;a:1:{i:0;s:26:"/js/bootstrap-typeahead.js";}}i:15;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerScriptFile";i:2;a:1:{i:0;s:18:"/js/persist-min.js";}}i:16;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerScriptFile";i:2;a:1:{i:0;s:26:"/js/jquery.validate.min.js";}}i:17;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerScriptFile";i:2;a:1:{i:0;s:15:"/js/function.js";}}i:18;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerScriptFile";i:2;a:1:{i:0;s:14:"/js/service.js";}}}}i:1;N;}
