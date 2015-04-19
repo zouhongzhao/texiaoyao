@@ -14,7 +14,7 @@
         ),
     ),
     'params' => array(
-        'yiiPath' => '/home/wwwroot/texiaoyao/public_html/core/framework/',
+        'yiiPath' => '/home/www/texiaoyao/public_html/core/framework/',
         'webmasterEmail' => 'admin@texiaoyao.cn',
         'editorEmail' => 'admin@texiaoyao.cn',
         'encryptionKey' => '301ee56e222dd317cfe979dcc9103baf8e877fd3b357176e53952c89082ccb43371ae7446f6d54fe0fa58c5d16781177d8ca77b0c9a15cd8533f35fa',
