@@ -33,9 +33,9 @@
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
-//                 array('label'=>Yii::t('site','latest_information'), 'url'=>Yii::app()->createUrl('/post/index'),
-//						'active'=>Yii::app()->controller->id === 'post' && Yii::app()->controller->action->id === 'index'),
-//            	array('label'=>Yii::t('site','爬虫搜索'), 'url'=>array('shop/spider')),
+                 array('label'=>Yii::t('site','latest_information'), 'url'=>Yii::app()->createUrl('/post/index'),
+						'active'=>Yii::app()->controller->id === 'post' && Yii::app()->controller->action->id === 'index'),
+            	array('label'=>Yii::t('site','爬虫搜索'), 'url'=>array('shop/spider')),
             	array('label'=>Yii::t('site','论坛'), 'url'=>'http://bbs.texiaoyao.cn'),
             ),
             'htmlOptions'=>array('class'=>'pull-left'),
