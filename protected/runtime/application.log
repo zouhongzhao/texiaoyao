@@ -4123,3 +4123,57 @@ Stack trace:
 #21 {main}
 REQUEST_URI=/
 ---
+2015/04/19 17:33:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "jmx-console"。' in /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php:1750
+Stack trace:
+#0 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1666): CWebApplication->runController('jmx-console')
+#1 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1191): CWebApplication->processRequest()
+#2 /mnt/home/www/texiaoyao/public_html/index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/jmx-console/
+HTTP_REFERER=http://115.28.44.141/
+---
+2015/04/19 17:33:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "web-console"。' in /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php:1750
+Stack trace:
+#0 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1666): CWebApplication->runController('web-console')
+#1 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1191): CWebApplication->processRequest()
+#2 /mnt/home/www/texiaoyao/public_html/index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/web-console/
+HTTP_REFERER=http://115.28.44.141/
+---
+2015/04/19 17:33:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "invoker/JMXInvokerServlet"。' in /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php:1750
+Stack trace:
+#0 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1666): CWebApplication->runController('invoker/JMXInvo...')
+#1 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1191): CWebApplication->processRequest()
+#2 /mnt/home/www/texiaoyao/public_html/index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/invoker/JMXInvokerServlet
+HTTP_REFERER=http://115.28.44.141/
+---
+2015/04/19 17:33:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "invoker/EJBInvokerServlet"。' in /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php:1750
+Stack trace:
+#0 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1666): CWebApplication->runController('invoker/EJBInvo...')
+#1 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1191): CWebApplication->processRequest()
+#2 /mnt/home/www/texiaoyao/public_html/index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/invoker/EJBInvokerServlet
+HTTP_REFERER=http://115.28.44.141/
+---
+2015/04/19 17:33:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "status"。' in /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php:1750
+Stack trace:
+#0 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1666): CWebApplication->runController('status')
+#1 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1191): CWebApplication->processRequest()
+#2 /mnt/home/www/texiaoyao/public_html/index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/status/
+HTTP_REFERER=http://115.28.44.141/
+---
+2015/04/19 17:33:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "server-status"。' in /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php:1750
+Stack trace:
+#0 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1666): CWebApplication->runController('server-status')
+#1 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1191): CWebApplication->processRequest()
+#2 /mnt/home/www/texiaoyao/public_html/index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/server-status/
+HTTP_REFERER=http://115.28.44.141/
+---
