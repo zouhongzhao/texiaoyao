@@ -4193,3 +4193,11 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/robots.txt
 ---
+2015/04/19 17:59:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "robots.txt"。' in /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php:1750
+Stack trace:
+#0 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1666): CWebApplication->runController('robots.txt')
+#1 /mnt/home/www/texiaoyao/public_html/core/framework/yiilite.php(1191): CWebApplication->processRequest()
+#2 /mnt/home/www/texiaoyao/public_html/index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/robots.txt
+---

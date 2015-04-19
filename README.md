@@ -24,7 +24,9 @@
 >
 ####一:ubuntu nginx服务器:
 >1,vim /etc/nginx/site-enable/texiaoyao.conf
->2,添加如下内容  
+  
+>2,添加如下内容
+	
 	server {
 	    listen 80;
 	    server_name  texiaoyao.cn www.texiaoyao.cn;
@@ -75,5 +77,5 @@
 
 ####二:配置文件:
 >protected/config/main-local.php
-
+  
 >在这里修改数据库用户名密码以及yii core路径.
