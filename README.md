@@ -2,20 +2,19 @@
 特效药比价网(yii+bootstrap)
 <p>
 自己业余时间做的,因为上线了2年,没什么效果,也没多少精力去推广,所以就共享了出来。
-
 主要用到了Yii+Bootstrap+Jquery+python+redis采集
-<p>
-<h2>
-<a id="user-content-demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+</p>
+<h2><a id="user-content-demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
 <p>For a live preview of the current theme, see <a href="http://texiaoyao.cn/">http://texiaoyao.cn/</a>.</p>
+<p>
 前台:
 ![image](https://github.com/zouhongzhao/texiaoyao/raw/master/front.png)
 后台：
 ![image](https://github.com/zouhongzhao/texiaoyao/raw/master/admin.png)
-
+</p>
 <h2>安装步骤<h2>
 <p>
-ubuntu nginx服务器:
+一:ubuntu nginx服务器:
 1,vim /etc/nginx/site-enable/texiaoyao.conf
 2,添加如下内容
 <code>
@@ -68,7 +67,7 @@ server {
 3,service nginx restart
 <p>
 <p>
-配置文件在:
+二:配置文件在:
 protected/config/main-local.php
 在这里修改数据库用户名密码以及yii core路径.
 </p>
