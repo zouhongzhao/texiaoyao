@@ -1,0 +1,60 @@
+/**
+ * CSS styles for Calendar
+ */
+ul.Calendar
+{
+	font-size:11px;
+#	border:0;
+#	line-height:150%;
+	display:inline;
+}
+
+ul.Calendar li
+{
+	display:inline;
+}
+
+ul.Calendar a:link,
+ul.Calendar a:visited
+{
+	border:solid 1px #9aafe5;
+	color:#0e509e;
+	padding:1px 3px;
+	text-decoration:none;
+}
+
+ul.Calendar .page a
+{
+	font-weight:normal;
+}
+
+ul.Calendar a:hover
+{
+	border:solid 1px #0e509e;
+}
+
+ul.Calendar #today
+{
+	color:#990000;
+	font-weight: bold;
+}
+
+ul.Calendar table
+{
+	margin-bottom: 0px;
+	width: 87%;
+}
+
+ul.Calendar th,
+ul.Calendar td,
+ul.Calendar caption
+{
+	text-align: center;
+	padding: 2px 0px;
+}
+
+ul.Calendar .calendar-month
+{
+	padding: 5px 0px;
+	text-align: center;
+}

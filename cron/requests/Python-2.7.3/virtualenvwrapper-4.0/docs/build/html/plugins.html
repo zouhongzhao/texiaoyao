@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Extending Virtualenvwrapper &mdash; virtualenvwrapper v3.6.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '3.6.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="virtualenvwrapper v3.6.1 documentation" href="index.html" />
+    <link rel="up" title="Customizing Virtualenvwrapper" href="hooks.html" />
+    <link rel="next" title="Project Management" href="projects.html" />
+    <link rel="prev" title="Per-User Customization" href="scripts.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="projects.html" title="Project Management"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="scripts.html" title="Per-User Customization"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">virtualenvwrapper v3.6.1 documentation</a> &raquo;</li>
+          <li><a href="hooks.html" accesskey="U">Customizing Virtualenvwrapper</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="extending-virtualenvwrapper">
+<span id="plugins"></span><h1>Extending Virtualenvwrapper<a class="headerlink" href="#extending-virtualenvwrapper" title="Permalink to this headline">¶</a></h1>
+<p>Long experience with home-grown solutions for customizing a
+development environment has proven how valuable it can be to have the
+ability to automate common tasks and eliminate persistent annoyances.
+Carpenters build jigs, software developers write shell scripts.
+virtualenvwrapper continues the tradition of encouraging a craftsman
+to modify their tools to work the way they want, rather than the other
+way around.</p>
+<p>Use the hooks provided to eliminate repetitive manual operations and
+streamline your development workflow.  For example, set up the
+<a class="reference internal" href="#plugins-pre-activate"><em>pre_activate</em></a> and <a class="reference internal" href="#plugins-post-activate"><em>post_activate</em></a> hooks to
+trigger an IDE to load a project file to reload files from the last
+editing session, manage time-tracking records, or start and stop
+development versions of an application server.  Use the
+<a class="reference internal" href="#plugins-initialize"><em>initialize</em></a> hook to add entirely new commands and hooks
+to virtualenvwrapper.  And the <a class="reference internal" href="#plugins-pre-mkvirtualenv"><em>pre_mkvirtualenv</em></a> and
+<a class="reference internal" href="#plugins-post-mkvirtualenv"><em>post_mkvirtualenv</em></a> hooks give you an opportunity to
+install basic requirements into each new development environment,
+initialize a source code control repository, or otherwise set up a new
+project.</p>
+<p>There are two ways to attach your code so that virtualenvwrapper will
+run it: End-users can use shell scripts or other programs for personal
+customization (see <a class="reference internal" href="scripts.html#scripts"><em>Per-User Customization</em></a>).  Extensions can also be
+implemented in Python by using <a class="reference external" href="http://packages.python.org/distribute/">Distribute</a> <em>entry points</em>, making it
+possible to share common behaviors between systems and developers.</p>
+<div class="section" id="defining-an-extension">
+<h2>Defining an Extension<a class="headerlink" href="#defining-an-extension" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Virtualenvwrapper is delivered with a plugin for creating and
+running the user customization scripts
+(<a class="reference internal" href="extensions.html#extensions-user-scripts"><em>user_scripts</em></a>).  The examples below are taken from
+the implementation of that plugin.</p>
+</div>
+<div class="section" id="code-organization">
+<h3>Code Organization<a class="headerlink" href="#code-organization" title="Permalink to this headline">¶</a></h3>
+<p>The Python package for <tt class="docutils literal"><span class="pre">virtualenvwrapper</span></tt> is a <em>namespace package</em>.
+That means multiple libraries can install code into the package, even
+if they are not distributed together or installed into the same
+directory.  Extensions can (optionally) use the <tt class="docutils literal"><span class="pre">virtualenvwrapper</span></tt>
+namespace by setting up their source tree like:</p>
+<ul class="simple">
+<li>virtualenvwrapper/<ul>
+<li>__init__.py</li>
+<li>user_scripts.py</li>
+</ul>
+</li>
+</ul>
+<p>And placing the following code in <tt class="docutils literal"><span class="pre">__init__.py</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;virtualenvwrapper module</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="nb">__import__</span><span class="p">(</span><span class="s">&#39;pkg_resources&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">declare_namespace</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Extensions can be loaded from any package, so using the
+<tt class="docutils literal"><span class="pre">virtualenvwrapper</span></tt> namespace is not required.</p>
+</div>
+</div>
+<div class="section" id="extension-api">
+<h3>Extension API<a class="headerlink" href="#extension-api" title="Permalink to this headline">¶</a></h3>
+<p>After the package is established, the next step is to create a module
+to hold the extension code.  For example,
+<tt class="docutils literal"><span class="pre">virtualenvwrapper/user_scripts.py</span></tt>.  The module should contain the
+actual extension entry points.  Supporting code can be included, or
+imported from elsewhere using standard Python code organization
+techniques.</p>
+<p>The API is the same for every extension point.  Each uses a Python
+function that takes a single argument, a list of strings passed to the
+hook loader on the command line.</p>
+<div class="highlight-python"><pre>def function_name(args):
+    # args is a list of strings passed to the hook loader</pre>
+</div>
+<p>The contents of the argument list are defined for each extension point
+below (see <a class="reference internal" href="#plugins-extension-points"><em>Extension Points</em></a>).</p>
+</div>
+<div class="section" id="extension-invocation">
+<h3>Extension Invocation<a class="headerlink" href="#extension-invocation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="direct-action">
+<h4>Direct Action<a class="headerlink" href="#direct-action" title="Permalink to this headline">¶</a></h4>
+<p>Plugins can attach to each hook in two different ways.  The default is
+to have a function run and do some work directly.  For example, the
+<tt class="docutils literal"><span class="pre">initialize()</span></tt> function for the user scripts plugin creates default
+user scripts when <tt class="docutils literal"><span class="pre">virtualenvwrapper.sh</span></tt> is loaded.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">filename</span><span class="p">,</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">GLOBAL_HOOKS</span><span class="p">:</span>
+        <span class="n">make_hook</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&#39;$WORKON_HOME&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="n">comment</span><span class="p">)</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modifying-the-user-environment">
+<span id="plugins-user-env"></span><h4>Modifying the User Environment<a class="headerlink" href="#modifying-the-user-environment" title="Permalink to this headline">¶</a></h4>
+<p>There are cases where the extension needs to update the user&#8217;s
+environment (e.g., changing the current working directory or setting
+environment variables).  Modifications to the user environment must be
+made within the user&#8217;s current shell, and cannot be run in a separate
+process.  To have code run in the user&#8217;s shell process, extensions can
+define hook functions to return the text of the shell statements to be
+executed.  These <em>source</em> hooks are run after the regular hooks with
+the same name, and should not do any work of their own.</p>
+<p>The <tt class="docutils literal"><span class="pre">initialize_source()</span></tt> hook for the user scripts plugin looks for
+a global initialize script and causes it to be run in the current
+shell process.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">initialize_source</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">#</span>
+<span class="s"># Run user-provided scripts</span>
+<span class="s">#</span>
+<span class="s">[ -f &quot;$WORKON_HOME/initialize&quot; ] &amp;&amp; source &quot;$WORKON_HOME/initialize&quot;</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Because the extension is modifying the user&#8217;s working shell, care
+must be taken not to corrupt the environment by overwriting
+existing variable values unexpectedly.  Avoid creating temporary
+variables where possible, and use unique names where variables
+cannot be avoided.  Prefixing variables with the extension name is
+a good way to manage the namespace.  For example, instead of
+<tt class="docutils literal"><span class="pre">temp_file</span></tt> use <tt class="docutils literal"><span class="pre">user_scripts_temp_file</span></tt>.  Use <tt class="docutils literal"><span class="pre">unset</span></tt> to
+release temporary variable names when they are no longer needed.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">virtualenvwrapper works under several shells with slightly
+different syntax (bash, sh, zsh, ksh).  Take this portability into
+account when defining source hooks.  Sticking to the simplest
+possible syntax usually avoids problems, but there may be cases
+where examining the <tt class="docutils literal"><span class="pre">SHELL</span></tt> environment variable to generate
+different syntax for each case is the only way to achieve the
+desired result.</p>
+</div>
+</div>
+</div>
+<div class="section" id="registering-entry-points">
+<h3>Registering Entry Points<a class="headerlink" href="#registering-entry-points" title="Permalink to this headline">¶</a></h3>
+<p>The functions defined in the plugin need to be registered as <em>entry
+points</em> in order for virtualenvwrapper&#8217;s hook loader to find them.
+<a class="reference external" href="http://packages.python.org/distribute/">Distribute</a> entry points are configured in the <tt class="docutils literal"><span class="pre">setup.py</span></tt> for your
+package by mapping the entry point name to the function in the package
+that implements it.</p>
+<p>This partial copy of virtualenvwrapper&#8217;s <tt class="docutils literal"><span class="pre">setup.py</span></tt> illustrates how
+the <tt class="docutils literal"><span class="pre">initialize()</span></tt> and <tt class="docutils literal"><span class="pre">initialize_source()</span></tt> entry points are
+configured.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Bootstrap installation of Distribute</span>
+<span class="kn">import</span> <span class="nn">distribute_setup</span>
+<span class="n">distribute_setup</span><span class="o">.</span><span class="n">use_setuptools</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;virtualenvwrapper&#39;</span><span class="p">,</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="s">&#39;2.0&#39;</span><span class="p">,</span>
+
+    <span class="n">description</span> <span class="o">=</span> <span class="s">&#39;Enhancements to virtualenv&#39;</span><span class="p">,</span>
+
+    <span class="c"># ... details omitted ...</span>
+
+    <span class="n">namespace_packages</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;virtualenvwrapper&#39;</span> <span class="p">],</span>
+
+    <span class="n">entry_points</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&#39;virtualenvwrapper.initialize&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s">&#39;user_scripts = virtualenvwrapper.user_scripts:initialize&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="s">&#39;virtualenvwrapper.initialize_source&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s">&#39;user_scripts = virtualenvwrapper.user_scripts:initialize_source&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+
+        <span class="c"># ... details omitted ...</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">entry_points</span></tt> argument to <tt class="docutils literal"><span class="pre">setup()</span></tt> is a dictionary mapping
+the entry point <em>group names</em> to lists of entry point specifiers.  A
+different group name is defined by virtualenvwrapper for each
+extension point (see <a class="reference internal" href="#plugins-extension-points"><em>Extension Points</em></a>).</p>
+<p>The entry point specifiers are strings with the syntax <tt class="docutils literal"><span class="pre">name</span> <span class="pre">=</span>
+<span class="pre">package.module:function</span></tt>.  By convention, the <em>name</em> of each entry
+point is the plugin name, but that is not required (the names are not
+used).</p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference external" href="http://packages.python.org/distribute/setuptools.html#namespace-packages">namespace packages</a></li>
+<li><a class="reference external" href="http://packages.python.org/distribute/setuptools.html#extensible-applications-and-frameworks">Extensible Applications and Frameworks</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-hook-loader">
+<h3>The Hook Loader<a class="headerlink" href="#the-hook-loader" title="Permalink to this headline">¶</a></h3>
+<p>Extensions are run through a command line application implemented in
+<tt class="docutils literal"><span class="pre">virtualenvwrapper.hook_loader</span></tt>.  Because <tt class="docutils literal"><span class="pre">virtualenvwrapper.sh</span></tt>
+is the primary caller and users do not typically need to run the app
+directly, no separate script is installed.  Instead, to run the
+application, use the <tt class="docutils literal"><span class="pre">-m</span></tt> option to the interpreter:</p>
+<div class="highlight-python"><pre>$ python -m virtualenvwrapper.hook_loader -h
+Usage: virtualenvwrapper.hook_loader [options] &lt;hook&gt; [&lt;arguments&gt;]
+
+Manage hooks for virtualenvwrapper
+
+Options:
+  -h, --help            show this help message and exit
+  -s, --source          Print the shell commands to be run in the current
+                        shell
+  -l, --list            Print a list of the plugins available for the given
+                        hook
+  -v, --verbose         Show more information on the console
+  -q, --quiet           Show less information on the console
+  -n NAMES, --name=NAMES
+                        Only run the hook from the named plugin</pre>
+</div>
+<p>To run the extensions for the initialize hook:</p>
+<div class="highlight-python"><pre>$ python -m virtualenvwrapper.hook_loader -v initialize</pre>
+</div>
+<p>To get the shell commands for the initialize hook:</p>
+<div class="highlight-python"><pre>$ python -m virtualenvwrapper.hook_loader --source initialize</pre>
+</div>
+<p>In practice, rather than invoking the hook loader directly it is more
+convenient to use the shell function, <tt class="docutils literal"><span class="pre">virtualenvwrapper_run_hook</span></tt>
+to run the hooks in both modes.:</p>
+<div class="highlight-python"><pre>$ virtualenvwrapper_run_hook initialize</pre>
+</div>
+<p>All of the arguments given to shell function are passed directly to
+the hook loader.</p>
+</div>
+<div class="section" id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
+<p>The hook loader configures logging so that messages are written to
+<tt class="docutils literal"><span class="pre">$WORKON_HOME/hook.log</span></tt>.  Messages also may be written to stderr,
+depending on the verbosity flag.  The default is for messages at <em>info</em>
+or higher levels to be written to stderr, and <em>debug</em> or higher to go to
+the log file.  Using logging in this way provides a convenient
+mechanism for users to control the verbosity of extensions.</p>
+<p>To use logging from within your extension, simply instantiate a logger
+and call its <tt class="docutils literal"><span class="pre">info()</span></tt>, <tt class="docutils literal"><span class="pre">debug()</span></tt> and other methods with the
+messages.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">pre_mkvirtualenv</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;pre_mkvirtualenv </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+    <span class="c"># ...</span>
+</pre></div>
+</div>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference external" href="http://docs.python.org/library/logging.html">Standard library documentation for logging</a></li>
+<li><a class="reference external" href="http://www.doughellmann.com/PyMOTW/logging/">PyMOTW for logging</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="extension-points">
+<span id="plugins-extension-points"></span><h2>Extension Points<a class="headerlink" href="#extension-points" title="Permalink to this headline">¶</a></h2>
+<p>The extension point names for native plugins follow a naming
+convention with several parts:
+<tt class="docutils literal"><span class="pre">virtualenvwrapper.(pre|post)_&lt;event&gt;[_source]</span></tt>.  The <em>&lt;event&gt;</em> is
+the action taken by the user or virtualenvwrapper that triggers the
+extension.  <tt class="docutils literal"><span class="pre">(pre|post)</span></tt> indicates whether to call the extension
+before or after the event.  The suffix <tt class="docutils literal"><span class="pre">_source</span></tt> is added for
+extensions that return shell code instead of taking action directly
+(see <a class="reference internal" href="#plugins-user-env"><em>Modifying the User Environment</em></a>).</p>
+</div>
+<div class="section" id="get-env-details">
+<span id="plugins-get-env-details"></span><h2>get_env_details<a class="headerlink" href="#get-env-details" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">virtualenvwrapper.get_env_details</span></tt> hooks are run when
+<tt class="docutils literal"><span class="pre">workon</span></tt> is run with no arguments and a list of the virtual
+environments is printed.  The hook is run once for each environment,
+after the name is printed, and can be used to show additional
+information about that environment.</p>
+<div class="section" id="initialize">
+<span id="plugins-initialize"></span><h3>initialize<a class="headerlink" href="#initialize" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">virtualenvwrapper.initialize</span></tt> hooks are run each time
+<tt class="docutils literal"><span class="pre">virtualenvwrapper.sh</span></tt> is loaded into the user&#8217;s environment.  The
+initialize hook can be used to install templates for configuration
+files or otherwise prepare the system for proper plugin operation.</p>
+</div>
+<div class="section" id="pre-mkvirtualenv">
+<span id="plugins-pre-mkvirtualenv"></span><h3>pre_mkvirtualenv<a class="headerlink" href="#pre-mkvirtualenv" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">virtualenvwrapper.pre_mkvirtualenv</span></tt> hooks are run after the
+virtual environment is created, but before the new environment is
+activated.  The current working directory for when the hook is run is
+<tt class="docutils literal"><span class="pre">$WORKON_HOME</span></tt> and the name of the new environment is passed as an
+argument.</p>
+</div>
+<div class="section" id="post-mkvirtualenv">
+<span id="plugins-post-mkvirtualenv"></span><h3>post_mkvirtualenv<a class="headerlink" href="#post-mkvirtualenv" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">virtualenvwrapper.post_mkvirtualenv</span></tt> hooks are run after a new
+virtual environment is created and activated.  <tt class="docutils literal"><span class="pre">$VIRTUAL_ENV</span></tt> is set
+to point to the new environment.</p>
+</div>
+<div class="section" id="pre-activate">
+<span id="plugins-pre-activate"></span><h3>pre_activate<a class="headerlink" href="#pre-activate" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">virtualenvwrapper.pre_activate</span></tt> hooks are run just before an
+environment is enabled.  The environment name is passed as the first
+argument.</p>
+</div>
+<div class="section" id="post-activate">
+<span id="plugins-post-activate"></span><h3>post_activate<a class="headerlink" href="#post-activate" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">virtualenvwrapper.post_activate</span></tt> hooks are run just after an
+environment is enabled.  <tt class="docutils literal"><span class="pre">$VIRTUAL_ENV</span></tt> is set to point to the
+current environment.</p>
+</div>
+<div class="section" id="pre-deactivate">
+<span id="plugins-pre-deactivate"></span><h3>pre_deactivate<a class="headerlink" href="#pre-deactivate" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">virtualenvwrapper.pre_deactivate</span></tt> hooks are run just before an
+environment is disabled.  <tt class="docutils literal"><span class="pre">$VIRTUAL_ENV</span></tt> is set to point to the
+current environment.</p>
+</div>
+<div class="section" id="post-deactivate">
+<span id="plugins-post-deactivate"></span><h3>post_deactivate<a class="headerlink" href="#post-deactivate" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">virtualenvwrapper.post_deactivate</span></tt> hooks are run just after an
+environment is disabled.  The name of the environment just deactivated
+is passed as the first argument.</p>
+</div>
+<div class="section" id="pre-rmvirtualenv">
+<span id="plugins-pre-rmvirtualenv"></span><h3>pre_rmvirtualenv<a class="headerlink" href="#pre-rmvirtualenv" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">virtualenvwrapper.pre_rmvirtualenv</span></tt> hooks are run just before
+an environment is deleted.  The name of the environment being deleted
+is passed as the first argument.</p>
+</div>
+<div class="section" id="post-rmvirtualenv">
+<span id="plugins-post-rmvirtualenv"></span><h3>post_rmvirtualenv<a class="headerlink" href="#post-rmvirtualenv" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">virtualenvwrapper.post_rmvirtualenv</span></tt> hooks are run just after
+an environment is deleted.  The name of the environment being deleted
+is passed as the first argument.</p>
+</div>
+</div>
+<div class="section" id="adding-new-extension-points">
+<h2>Adding New Extension Points<a class="headerlink" href="#adding-new-extension-points" title="Permalink to this headline">¶</a></h2>
+<p>Plugins that define new operations can also define new extension
+points.  No setup needs to be done to allow the hook loader to find
+the extensions; documenting the names and adding calls to
+<tt class="docutils literal"><span class="pre">virtualenvwrapper_run_hook</span></tt> is sufficient to cause them to be
+invoked.</p>
+<p>The hook loader assumes all extension point names start with
+<tt class="docutils literal"><span class="pre">virtualenvwrapper.</span></tt> and new plugins will want to use their own
+namespace qualifier to append to that.  For example, the <a class="reference external" href="http://www.doughellmann.com/projects/virtualenvwrapper.project/">project</a>
+extension defines new events around creating project directories (pre
+and post).  These are called
+<tt class="docutils literal"><span class="pre">virtualenvwrapper.project.pre_mkproject</span></tt> and
+<tt class="docutils literal"><span class="pre">virtualenvwrapper.project.post_mkproject</span></tt>.  These are invoked
+with:</p>
+<div class="highlight-python"><pre>virtualenvwrapper_run_hook project.pre_mkproject $project_name</pre>
+</div>
+<p>and:</p>
+<div class="highlight-python"><pre>virtualenvwrapper_run_hook project.post_mkproject</pre>
+</div>
+<p>respectively.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Extending Virtualenvwrapper</a><ul>
+<li><a class="reference internal" href="#defining-an-extension">Defining an Extension</a><ul>
+<li><a class="reference internal" href="#code-organization">Code Organization</a></li>
+<li><a class="reference internal" href="#extension-api">Extension API</a></li>
+<li><a class="reference internal" href="#extension-invocation">Extension Invocation</a><ul>
+<li><a class="reference internal" href="#direct-action">Direct Action</a></li>
+<li><a class="reference internal" href="#modifying-the-user-environment">Modifying the User Environment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registering-entry-points">Registering Entry Points</a></li>
+<li><a class="reference internal" href="#the-hook-loader">The Hook Loader</a></li>
+<li><a class="reference internal" href="#logging">Logging</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#extension-points">Extension Points</a></li>
+<li><a class="reference internal" href="#get-env-details">get_env_details</a><ul>
+<li><a class="reference internal" href="#initialize">initialize</a></li>
+<li><a class="reference internal" href="#pre-mkvirtualenv">pre_mkvirtualenv</a></li>
+<li><a class="reference internal" href="#post-mkvirtualenv">post_mkvirtualenv</a></li>
+<li><a class="reference internal" href="#pre-activate">pre_activate</a></li>
+<li><a class="reference internal" href="#post-activate">post_activate</a></li>
+<li><a class="reference internal" href="#pre-deactivate">pre_deactivate</a></li>
+<li><a class="reference internal" href="#post-deactivate">post_deactivate</a></li>
+<li><a class="reference internal" href="#pre-rmvirtualenv">pre_rmvirtualenv</a></li>
+<li><a class="reference internal" href="#post-rmvirtualenv">post_rmvirtualenv</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adding-new-extension-points">Adding New Extension Points</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scripts.html"
+                        title="previous chapter">Per-User Customization</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="projects.html"
+                        title="next chapter">Project Management</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/plugins.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="projects.html" title="Project Management"
+             >next</a></li>
+        <li class="right" >
+          <a href="scripts.html" title="Per-User Customization"
+             >previous</a> |</li>
+        <li><a href="index.html">virtualenvwrapper v3.6.1 documentation</a> &raquo;</li>
+          <li><a href="hooks.html" >Customizing Virtualenvwrapper</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2013, Doug Hellmann.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

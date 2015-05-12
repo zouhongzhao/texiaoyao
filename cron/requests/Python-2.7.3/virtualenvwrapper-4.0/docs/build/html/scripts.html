@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Per-User Customization &mdash; virtualenvwrapper v3.6.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '3.6.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="virtualenvwrapper v3.6.1 documentation" href="index.html" />
+    <link rel="up" title="Customizing Virtualenvwrapper" href="hooks.html" />
+    <link rel="next" title="Extending Virtualenvwrapper" href="plugins.html" />
+    <link rel="prev" title="Customizing Virtualenvwrapper" href="hooks.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="plugins.html" title="Extending Virtualenvwrapper"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="hooks.html" title="Customizing Virtualenvwrapper"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">virtualenvwrapper v3.6.1 documentation</a> &raquo;</li>
+          <li><a href="hooks.html" accesskey="U">Customizing Virtualenvwrapper</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="per-user-customization">
+<span id="scripts"></span><h1>Per-User Customization<a class="headerlink" href="#per-user-customization" title="Permalink to this headline">¶</a></h1>
+<p>The end-user customization scripts are either <em>sourced</em> (allowing them
+to modify your shell environment) or <em>run</em> as an external program at
+the appropriate trigger time.</p>
+<p>The global scripts applied to all environments should be placed in the
+directory named by <a class="reference internal" href="install.html#variable-virtualenvwrapper-hook-dir"><em>VIRTUALENVWRAPPER_HOOK_DIR</em></a>. The local scripts should be
+placed in the <tt class="docutils literal"><span class="pre">bin</span></tt> directory of the virtualenv.</p>
+<div class="section" id="get-env-details">
+<span id="scripts-get-env-details"></span><h2>get_env_details<a class="headerlink" href="#get-env-details" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">both</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">env name</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">run</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><tt class="docutils literal"><span class="pre">$VIRTUALENVWRAPPER_HOOK_DIR/get_env_details</span></tt> is run when <tt class="docutils literal"><span class="pre">workon</span></tt> is run with no
+arguments and a list of the virtual environments is printed.  The hook
+is run once for each environment, after the name is printed, and can
+print additional information about that environment.</p>
+</div>
+<div class="section" id="initialize">
+<span id="scripts-initialize"></span><h2>initialize<a class="headerlink" href="#initialize" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">global</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">None</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">sourced</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><tt class="docutils literal"><span class="pre">$VIRTUALENVWRAPPER_HOOK_DIR/initialize</span></tt> is sourced when <tt class="docutils literal"><span class="pre">virtualenvwrapper.sh</span></tt>
+is loaded into your environment.  Use it to adjust global settings
+when virtualenvwrapper is enabled.</p>
+</div>
+<div class="section" id="premkvirtualenv">
+<span id="scripts-premkvirtualenv"></span><h2>premkvirtualenv<a class="headerlink" href="#premkvirtualenv" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">global</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">name of new environment</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">run</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><tt class="docutils literal"><span class="pre">$VIRTUALENVWRAPPER_HOOK_DIR/premkvirtualenv</span></tt> is run as an external program after
+the virtual environment is created but before the current environment
+is switched to point to the new env. The current working directory for
+the script is <tt class="docutils literal"><span class="pre">$WORKON_HOME</span></tt> and the name of the new environment is
+passed as an argument to the script.</p>
+</div>
+<div class="section" id="postmkvirtualenv">
+<span id="scripts-postmkvirtualenv"></span><h2>postmkvirtualenv<a class="headerlink" href="#postmkvirtualenv" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">global</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">none</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">sourced</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><tt class="docutils literal"><span class="pre">$VIRTUALENVWRAPPER_HOOK_DIR/postmkvirtualenv</span></tt> is sourced after the new environment
+is created and activated. If the <tt class="docutils literal"><span class="pre">-a</span></tt> &lt;project_path&gt; flag was used,
+the link to the project directory is set up before this script is sourced.</p>
+</div>
+<div class="section" id="precpvirtualenv">
+<span id="scripts-precpvirtualenv"></span><h2>precpvirtualenv<a class="headerlink" href="#precpvirtualenv" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">global</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">name of original environment, name of new environment</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">run</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><tt class="docutils literal"><span class="pre">$VIRTUALENVWRAPPER_HOOK_DIR/precpvirtualenv</span></tt> is run as an external program after
+the source environment is duplicated and made relocatable, but before
+the <tt class="docutils literal"><span class="pre">premkvirtualenv</span></tt> hook is run or the current environment is
+switched to point to the new env. The current working directory for
+the script is <tt class="docutils literal"><span class="pre">$WORKON_HOME</span></tt> and the names of the source and new
+environments are passed as arguments to the script.</p>
+</div>
+<div class="section" id="postcpvirtualenv">
+<span id="scripts-postcpvirtualenv"></span><h2>postcpvirtualenv<a class="headerlink" href="#postcpvirtualenv" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">global</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">none</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">sourced</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><tt class="docutils literal"><span class="pre">$VIRTUALENVWRAPPER_HOOK_DIR/postcpvirtualenv</span></tt> is sourced after the new environment
+is created and activated.</p>
+</div>
+<div class="section" id="preactivate">
+<span id="scripts-preactivate"></span><h2>preactivate<a class="headerlink" href="#preactivate" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">global, local</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">environment name</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">run</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>The global <tt class="docutils literal"><span class="pre">$VIRTUALENVWRAPPER_HOOK_DIR/preactivate</span></tt> script is run before the new
+environment is enabled.  The environment name is passed as the first
+argument.</p>
+<p>The local <tt class="docutils literal"><span class="pre">$VIRTUAL_ENV/bin/preactivate</span></tt> hook is run before the new
+environment is enabled.  The environment name is passed as the first
+argument.</p>
+</div>
+<div class="section" id="postactivate">
+<span id="scripts-postactivate"></span><h2>postactivate<a class="headerlink" href="#postactivate" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">global, local</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">none</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">sourced</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>The global <tt class="docutils literal"><span class="pre">$VIRTUALENVWRAPPER_HOOK_DIR/postactivate</span></tt> script is sourced after the
+new environment is enabled. <tt class="docutils literal"><span class="pre">$VIRTUAL_ENV</span></tt> refers to the new
+environment at the time the script runs.</p>
+<p>This example script adds a space between the virtual environment name
+and your old PS1 by making use of <tt class="docutils literal"><span class="pre">_OLD_VIRTUAL_PS1</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">PS1</span><span class="o">=</span><span class="s">&quot;(`basename </span><span class="se">\&quot;</span><span class="s">$VIRTUAL_ENV</span><span class="se">\&quot;</span><span class="s">`) $_OLD_VIRTUAL_PS1&quot;</span>
+</pre></div>
+</div>
+<p>The local <tt class="docutils literal"><span class="pre">$VIRTUAL_ENV/bin/postactivate</span></tt> script is sourced after
+the new environment is enabled. <tt class="docutils literal"><span class="pre">$VIRTUAL_ENV</span></tt> refers to the new
+environment at the time the script runs.</p>
+<p>This example script for the PyMOTW environment changes the current
+working directory and the PATH variable to refer to the source tree
+containing the PyMOTW source.</p>
+<div class="highlight-python"><pre>pymotw_root=/Users/dhellmann/Documents/PyMOTW
+cd $pymotw_root
+PATH=$pymotw_root/bin:$PATH</pre>
+</div>
+</div>
+<div class="section" id="predeactivate">
+<span id="scripts-predeactivate"></span><h2>predeactivate<a class="headerlink" href="#predeactivate" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">local, global</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">none</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">sourced</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>The local <tt class="docutils literal"><span class="pre">$VIRTUAL_ENV/bin/predeactivate</span></tt> script is sourced before the
+current environment is deactivated, and can be used to disable or
+clear settings in your environment. <tt class="docutils literal"><span class="pre">$VIRTUAL_ENV</span></tt> refers to the old
+environment at the time the script runs.</p>
+<p>The global <tt class="docutils literal"><span class="pre">$VIRTUALENVWRAPPER_HOOK_DIR/predeactivate</span></tt> script is sourced before the
+current environment is deactivated.  <tt class="docutils literal"><span class="pre">$VIRTUAL_ENV</span></tt> refers to the
+old environment at the time the script runs.</p>
+</div>
+<div class="section" id="postdeactivate">
+<span id="scripts-postdeactivate"></span><h2>postdeactivate<a class="headerlink" href="#postdeactivate" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">local, global</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">none</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">sourced</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>The <tt class="docutils literal"><span class="pre">$VIRTUAL_ENV/bin/postdeactivate</span></tt> script is sourced after the
+current environment is deactivated, and can be used to disable or
+clear settings in your environment.  The path to the environment just
+deactivated is available in <tt class="docutils literal"><span class="pre">$VIRTUALENVWRAPPER_LAST_VIRTUALENV</span></tt>.</p>
+</div>
+<div class="section" id="prermvirtualenv">
+<span id="scripts-prermvirtualenv"></span><h2>prermvirtualenv<a class="headerlink" href="#prermvirtualenv" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">global</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">environment name</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">run</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>The <tt class="docutils literal"><span class="pre">$VIRTUALENVWRAPPER_HOOK_DIR/prermvirtualenv</span></tt> script is run as an external
+program before the environment is removed. The full path to the
+environment directory is passed as an argument to the script.</p>
+</div>
+<div class="section" id="postrmvirtualenv">
+<span id="scripts-postrmvirtualenv"></span><h2>postrmvirtualenv<a class="headerlink" href="#postrmvirtualenv" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">global</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">environment name</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">run</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>The <tt class="docutils literal"><span class="pre">$VIRTUALENVWRAPPER_HOOK_DIR/postrmvirtualenv</span></tt> script is run as an external
+program after the environment is removed. The full path to the
+environment directory is passed as an argument to the script.</p>
+</div>
+<div class="section" id="premkproject">
+<span id="scripts-premkproject"></span><h2>premkproject<a class="headerlink" href="#premkproject" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">global</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">name of new project</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">run</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><tt class="docutils literal"><span class="pre">$WORKON_HOME/premkproject</span></tt> is run as an external program after the
+virtual environment is created and after the current environment is
+switched to point to the new env, but before the new project directory
+is created. The current working directory for the script is
+<tt class="docutils literal"><span class="pre">$PROJECT_HOME</span></tt> and the name of the new project is passed as an
+argument to the script.</p>
+</div>
+<div class="section" id="postmkproject">
+<span id="scripts-postmkproject"></span><h2>postmkproject<a class="headerlink" href="#postmkproject" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Global/Local:</th><td class="field-body">global</td>
+</tr>
+<tr class="field"><th class="field-name">Argument(s):</th><td class="field-body">none</td>
+</tr>
+<tr class="field"><th class="field-name">Sourced/Run:</th><td class="field-body">sourced</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><tt class="docutils literal"><span class="pre">$WORKON_HOME/postmkproject</span></tt> is sourced after the new environment
+and project directories are created and the virtualenv is activated.
+The current working directory is the project directory.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Per-User Customization</a><ul>
+<li><a class="reference internal" href="#get-env-details">get_env_details</a></li>
+<li><a class="reference internal" href="#initialize">initialize</a></li>
+<li><a class="reference internal" href="#premkvirtualenv">premkvirtualenv</a></li>
+<li><a class="reference internal" href="#postmkvirtualenv">postmkvirtualenv</a></li>
+<li><a class="reference internal" href="#precpvirtualenv">precpvirtualenv</a></li>
+<li><a class="reference internal" href="#postcpvirtualenv">postcpvirtualenv</a></li>
+<li><a class="reference internal" href="#preactivate">preactivate</a></li>
+<li><a class="reference internal" href="#postactivate">postactivate</a></li>
+<li><a class="reference internal" href="#predeactivate">predeactivate</a></li>
+<li><a class="reference internal" href="#postdeactivate">postdeactivate</a></li>
+<li><a class="reference internal" href="#prermvirtualenv">prermvirtualenv</a></li>
+<li><a class="reference internal" href="#postrmvirtualenv">postrmvirtualenv</a></li>
+<li><a class="reference internal" href="#premkproject">premkproject</a></li>
+<li><a class="reference internal" href="#postmkproject">postmkproject</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hooks.html"
+                        title="previous chapter">Customizing Virtualenvwrapper</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="plugins.html"
+                        title="next chapter">Extending Virtualenvwrapper</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/scripts.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="plugins.html" title="Extending Virtualenvwrapper"
+             >next</a></li>
+        <li class="right" >
+          <a href="hooks.html" title="Customizing Virtualenvwrapper"
+             >previous</a> |</li>
+        <li><a href="index.html">virtualenvwrapper v3.6.1 documentation</a> &raquo;</li>
+          <li><a href="hooks.html" >Customizing Virtualenvwrapper</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2013, Doug Hellmann.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>
